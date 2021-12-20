@@ -30,6 +30,6 @@ function Clear(){
 
     document.getElementById("matrix").value=null;
     document.getElementById("Solution").value=null;
-    document.getElementById("iteration").value=1;
+    document.getElementById("iteration").value=0;
 
 }
