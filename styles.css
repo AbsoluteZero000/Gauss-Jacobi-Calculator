@@ -1,0 +1,61 @@
+h1{
+    color: white;
+    text-align: center; 
+
+}
+label{
+
+    color :ghostwhite;
+}
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+:root, body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #eee;
+}
+input.textIN{
+    background-color: transparent;
+    backdrop-filter: blur(13px);
+    border-radius: 5px;
+    color: ghostwhite;
+}
+textarea {
+    resize: none;
+    border-radius: 10px;
+    background-color: transparent;
+    backdrop-filter: blur(13px);
+    color:ghostwhite;
+}
+button.B1{
+    background-color: rgb(167, 80, 8) ;
+    border-radius: 9px;
+    color: ghostwhite;
+    opacity: 1;
+
+}
+body{
+    background-image: url("background.jpg");
+    size: 1080px;
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+	place-items: center;
+	place-content: center;
+}
+form.wrap{
+    border-radius: 20px;
+    width: 500px;
+    height: 250px;
+    background-color: transparent;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+
