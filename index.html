@@ -5,27 +5,56 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="main.js" defer></script>
     <title>Numerical Solutions</title>
-    <link rel="icon" href="background.jpg">
+    <link rel="icon" href="icon.jpg">
 </head>
 <body>
     <h1 >Gauss – Jaccobi</h1>
     <form action ="" class ="wrap">
         <br>
-        <textarea id="matrix" placeholder= "Enter your matrix"  rows="10" cols="50"></textarea>
-        <textarea id="Solution" placeholder="Enter the Solution" rows="10" cols="9"></textarea><br><br>
-        <label for="iteration" > Error Tolerance:</label>
-        <input class="textIN" type ="number" id="iteration" placeholder="number of iterations" min ="1" max ="100">
+        <textarea id="Mat" placeholder= 
+"5 1 5 1
+1 5 4 7 
+2 5 6 3
+1 5 7 3"  
+        rows="10" cols="50"></textarea>
+        <textarea id="Sol" cols="7" rows="10" placeholder="1
+2
+3
+3"
+></textarea><br><br>
+        <label for="Error" > Error Tolerance:</label>
+        <input class="textIN" type ="number" id="Error" placeholder="0.001" min ="0" max ="5">
         <button type="button" class="B1" id="clear"  onclick="Clear()">Clear</button>
-        <button type="button" class="B1" id ="submit" onclick ="checkerror()" >  Calculate </button>
-    </form>
+        <button type="button" class="B1" id ="but" onclick ="calculate()" >Calculate</button>
+    </form><br><br>
+
+    <div id="credit" class = "credit">
     <div>
-
-
+        <p class="S" >Submitted by: <br>
+            Ahmed Wael Wanas  - 20206008 - 32<br>
+            Adham Hazem Fahmy - 20206011 - 148<br>
+            Ali Esmat Orfy    - 20206123 - 65<br>
+        </p>
 
 
     </div>
+    <div>
+        <p class ="S" id="sa">Submitted to: Dr. Eng. Moustafa Reda. A. Eltantawi</p>  
+    </div>
+</div>
+<div>
+<p id="answer" class="answer">
+
+
+
+
+
+
+</p>
+</div>
+
 </body>
 
 </html>
