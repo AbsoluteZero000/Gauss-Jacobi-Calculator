@@ -1,14 +1,15 @@
 let matrix;
 let solution;
-let errort=0.001;
-let counter=0;
 let row_sum ;
 let max_in_row ;
 let co_ef_swapper;
 let sol_swapper;
-let counter2=0;
+let initial ;
+let iterationResult;
 
 
+document.getElementById("iteration").value=1;
+document.getElementById("answerID").style.display="none";
 
 function printmatrix(){
 console.log(matrix);
@@ -18,7 +19,7 @@ console.log(solution);
 
 
 function printOnPage(text){
-  let elm = document.getElementById( 'answer' ),
+  let elm = document.getElementById( 'answer' );
   div = document.createElement( 'div' );
   div.textContent = text ;
   elm.appendChild( div );
@@ -47,13 +48,17 @@ function arrangerows()
 
 
 function calculate(){
-  
-
+  let iterations=0;
+  document.getElementById("credit").style.display = "none";
+  document.getElementById("answerID").style.display="block";
   document.getElementById("answer").innerHTML = "";
     //////////////////////////////////////input and converting into a 2d array/////////////////////////////////////////////////
   matrix=document.getElementById("Mat").value;
   solution=document.getElementById("Sol").value;
-  errort=document.getElementById("Error").value;
+  iterationResult=document.getElementById("Intialvalues").value;
+  iterations=document.getElementById("iteration").value;
+
+  iterationResult=iterationResult.split(" ");
   solution=solution.split("\n");
   matrix=matrix.split("\n");
   for (let i=0;i<matrix.length;i++){
@@ -129,91 +134,104 @@ arrangerows();
 console.log("This is the rearranged matrix");
 printmatrix();
 
-let v = new Array(matrix.length);
-let temp = new Array(matrix.length);
-
-for (let i = 0; i < matrix.length; i++) {
-
-    v[i] = 0;
-    temp[i] = 0;
-}
-
-console.log ("This is the pre calculated temp ");
-console.log (temp);
-console.log (v);
-
-    // iteration loop
-    for (let k = 0; k < 1000000 ; k ++ )
+    //Gauss Jaccobi
+    let iteration_counter = 0;
+    let rowSum = new Array(matrix.length);
+    let oldIteration = new Array (matrix.length);
+    
+    //cout << "Enter initial guess in order: ";
+    ////cin >> iterationResult[i];
+    
+    //cout << "Enter number of iterations: ";
+    //cin >> iterations;
+    
+    while (iterations > 0)
     {
-        // rows access
+        
+        for (let k = 0; k < matrix.length; k++)
+        {
+            oldIteration[k] = iterationResult[k]; //save past iteration in another array
+            rowSum[k] = 0;
+        }
+
         for (let i = 0; i < matrix.length ; i++)
-        {
-            
-
-            // column index access
-            for (let j =0 ; j < matrix.length ; j ++)
+        {   
+            for (let j = 0; j < matrix.length; j++)
             {
-                // every individual term
-                temp[i] = temp[i] - (matrix[i][j]/matrix[i][i]) * v[j];         
-
+                if(j != i) //Ignore principal diagonal
+                {rowSum[i] = rowSum[i] + (matrix[i][j] * oldIteration[j]);} //calculate sum part
+                
+                iterationResult[i] = (1/matrix[i][i]) * (solution[i] - rowSum[i]); //result of iteration calculation
             }
-            // solution term divided by coff
-            temp[i]= temp[i]+(solution[i]/ matrix [i][i]);      
 
-            // to remove zero term in first iteration only
-            if (i == 0 && k == 0)
-            {temp[i] = temp[i] + ( v[i]/matrix[i][i]);}
-           
-
+            //cout << iterationResult[i] << endl;
         }
-        counter2 = 0;
-        for(let i=0 ; i < matrix.length ; i++ )
-        {
-          if (temp[i]-v[i] <= errort )               
-          {
-              counter2 ++ ;
-              
-          }
-        }
-
-        if (counter2 == matrix.length)
-        {
-            break ;
-        }
-
-        for (let i = 0 ;  i < matrix.length ; i++ )
-       {
-            v[i] = temp[i] ;
-       }
+        
+        iterations--;
     }
 
 
-console.log ("This is the final answer");  
-console.log (temp);
 
-
-document.getElementById("credit").style.display = "none";
-let decimal=0;
-while (errort<1){
-decimal++;
-errort*=10;
-
-}
-
-
-
+printexplation();
+printOnPage("\n");
 for (let i=0;i<matrix.length;i++){
-printOnPage("X"+(i+1)+" = "+temp[i].toFixed(decimal)); 
+printOnPage("X"+(i+1)+" = "+iterationResult[i].toFixed(10)); 
   }
 
-errort=0.001;
 
 for (let i=0;i<matrix.length;i++){
-temp[i]=0;}
+iterationResult[i]=0;}
+
 
 }
 
+function printexplation (){
+  
+  for (let i =0 ; i < matrix.length ; i++)
+  {
+     printOnPage("X"+ (i+1) +" = 1 / "+ (matrix[i][i])+" ( ") 
+     let coffecientcounter = 1
 
+     for (let j = 0; j < matrix.length ; j++)
+     { 
+
+       if (solution[i] == 0)
+       {} 
+       else if (j == 0)
+       {
+         if (solution[i] < 0)
+         {
+           printOnPage ("-"+ (-1*solution[i]) );
+         }
+         else 
+         {
+           printOnPage ("+"+ (solution[i]));
+         }
+       }
+
+       if (i == j )
+       {
+          printOnPage ( "+0 X"+(coffecientcounter))
+       }
+
+       else if ( matrix[i][j] >= 0)
+       {
+         printOnPage("+"+ (matrix[i][j]) +" X"+ (coffecientcounter));
+       }
+       else 
+       {
+         printOnPage( "-"+ (-1 * matrix[i][j]) + " X"+(coffecientcounter));
+       }
+
+       coffecientcounter++;
+       
+     }
+     printOnPage (" ) ")
+     printOnPage('\n')
+  }
+
+
+}
 
 
 
@@ -222,7 +240,9 @@ function Clear(){
 
     document.getElementById("Mat").value=null;
     document.getElementById("Sol").value=null;
-    document.getElementById("Error").value=null;
+    document.getElementById("iteration").value=1;
     document.getElementById("answer").innerHTML = "";
     document.getElementById("credit").style.display = "block";
-}
+    document.getElementById("Intialvalues").value=null;
+    document.getElementById("answerID").style.display="none";
+  }

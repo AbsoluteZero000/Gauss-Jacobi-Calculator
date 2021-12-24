@@ -6,11 +6,12 @@ h1{
 .S{
     color: whitesmoke;
 }
-.sa{
+p.sa{
     font-size: 200%;
 
 
 }
+
 .credit{
     text-align: center;
     backdrop-filter: blur(30px);
@@ -19,7 +20,8 @@ h1{
     border-radius: 20px;
 }
 p.answer{
-    color : white;
+    color : black;
+
 }
 label{
 
@@ -181,3 +183,13 @@ form.wrap{
 
 }
 
+.Aborder
+{
+  text-align: center;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  height: auto;
+  border-radius: 10px;
+  width:200px;
+
+}

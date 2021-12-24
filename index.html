@@ -19,24 +19,27 @@
 2 5 6 3
 1 5 7 3"  
         rows="10" cols="50"></textarea>
-        <textarea id="Sol" cols="7" rows="10" placeholder="1
+        <textarea id="Sol" cols="7" rows="10" placeholder=
+"1
 2
 3
 3"
 ></textarea><br><br>
-        <label for="Error" > Error Tolerance:</label>
-        <input class="textIN" type ="number" id="Error" placeholder="0.001" min ="0" max ="5">
+        <label for="iteration" > Iterations : </label>
+        <input class="textIN" type ="number" id="iteration" placeholder="0.001" min ="0" max ="100">
+        <label for ="Intialvalues" >Intial values : </label>
+        <input class ="textIN" type ="text" id ="Intialvalues"  placeholder ="0 0 0 0"><br><br>
         <button type="button" class="B1" id="clear"  onclick="Clear()">Clear</button>
         <button type="button" class="B1" id ="but" onclick ="calculate()" >Calculate</button>
-    </form><br><br>
+    </form><br><br><br><br>
 
     <div id="credit" class = "credit">
     <div>
         <p class="S" >Submitted by: <br>
-            Ahmed Wael Wanas  - 20206008 - 32<br>
-            Adham Hazem Fahmy - 20206011 - 148<br>
-            Ali Esmat Orfy    - 20206123 - 65<br>
-            Mostafa Ahmed mohamed  - 20206073 - 108 <br>
+            Ahmed Wael Wanas  - 20206008 - 32 <br>
+            Adham Hazem Fahmy - 20206011 - 148 <br>
+            Ali Esmat Orfy    - 20206123 - 65 <br>
+            Mostafa Ahmed Mohamed - 20206073 - 107<br>
         </p>
 
 
@@ -45,15 +48,12 @@
         <p class ="S" id="sa">Submitted to: Dr. Eng. Moustafa Reda. A. Eltantawi</p>  
     </div>
 </div>
-<div>
-<p id="answer" class="answer">
 
 
+<div class="Aborder" id="answerID">
+    <br>
+    <p id="answer" class="answer"></p>
 
-
-
-
-</p>
 </div>
 
 </body>
