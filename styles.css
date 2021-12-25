@@ -1,55 +1,66 @@
-h1{
-    color: white;
-    text-align: center; 
-
-}
-.S{
-    color: whitesmoke;
-}
-p.sa{
-    font-size: 200%;
-
-
+h1 {
+  color: white;
+  text-align: center;
 }
 
-.credit{
-    text-align: center;
-    backdrop-filter: blur(30px);
-    width :400px;
-    height: 150px;
-    border-radius: 20px;
+.S {
+  color: whitesmoke;
 }
-p.answer{
-    color : black;
+
+p.sa {
+  font-size: 200%;
+
 
 }
-label{
 
-    color :ghostwhite;
+.credit {
+  backdrop-filter: blur(30px);
+  width: 400px;
+  height: 150px;
+  margin:0 auto;
+  border-radius: 20px;
+  text-align: center;
 }
-*, *::before, *::after {
-	box-sizing: inherit;
+
+p.answer {
+  color: black;
+
 }
-:root, body {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	background: transparent;
+
+label {
+
+  color: ghostwhite;
 }
-.textIN{
-    background-color: transparent;
-    backdrop-filter: blur(13px);
-    border-radius: 5px;
-    color: ghostwhite;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
+
+:root,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.textIN {
+  background-color: transparent;
+  backdrop-filter: blur(13px);
+  border-radius: 5px;
+  color: ghostwhite;
+}
+
 textarea {
-    resize: none;
-    border-radius: 10px;
-    background-color: transparent;
-    backdrop-filter: blur(13px);
-    color:ghostwhite;
+  resize: none;
+  border-radius: 10px;
+  background-color: transparent;
+  backdrop-filter: blur(13px);
+  color: ghostwhite;
 }
 
 .B1 {
@@ -65,7 +76,7 @@ textarea {
   display: inline-block;
   flex-direction: row;
   flex-shrink: 0;
-  font-family: Eina01,sans-serif;
+  font-family: Eina01, sans-serif;
   font-size: 16px;
   font-weight: 800;
   justify-content: center;
@@ -161,35 +172,38 @@ textarea {
   cursor: default;
   opacity: .24;
 }
-body{
-    background-image: url("background.jpg");
-    size: 1080px;
-    background-attachment: fixed;
-    background-size: cover;
-    display: grid;
-	place-items: center;
-	place-content: center;
-}
-form.wrap{
-    backdrop-filter: blur =20px;
-    border-radius: 20px;
-    width: 500px;
-    height: 250px;
-    background-color: transparent;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+
+body {
+  background-image: url("background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  display: block;
 
 }
 
-.Aborder
-{
-  text-align: center;
+form.wrap {
+  backdrop-filter: blur=20px;
+  border-radius: 20px;
+  width: 500px;
+  height: 250px;
+  margin:0 auto;
+  background-color: transparent;
+  position: relative;
+  overflow: show;
+
+}
+
+.Aborder {
   background-color: transparent;
   backdrop-filter: blur(20px);
   height: auto;
+  margin:0 auto;
   border-radius: 10px;
-  width:200px;
-
+  width: 500px;
+  text-align: center;
+}
+.parent{
+text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
