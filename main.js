@@ -167,47 +167,84 @@ function calculate() {
     printOnPage("X" + (i + 1) + " = " + iterationResult[i].toFixed(10));
   }
 
-
+  
   for (let i = 0; i < matrix.length; i++) {
     iterationResult[i] = 0;
   }
 }
 
 function printexplation() {
-  printOnPage("The first step is to sort the array:\n");
+
+  printOnPage("   The first step is to sort the array by swaping the rows to get a principle diagonal where the element Aii is bigger than the sum of the rest of the row :\n");
   for (let i = 0; i < matrix.length; i++) {
+    
     let row = '';
+    
     for (let j = 0; j < matrix.length; j++) {
-      row += matrix[i][j]+"x<sub>"+(j+1)+"</sub>";
+     
+      if (matrix[i][j] >= 0)
+      {
+        if (j == 0)
+        {
+          row += matrix[i][j] +"x<sub>"+(j+1)+"</sub>";
+        }
+
+        else
+        {
+          row += " + "+ matrix[i][j] +"x<sub>"+(j+1)+"</sub>";
+        }
+      }
+      else 
+      {
+        row += " - "+ (-1*matrix[i][j]) +"x<sub>"+(j+1)+"</sub>";
+      }
+
       row+="\t";
 
     }
-    row += "= "+solution[i];
+    if (solution[i] >= 0)
+    {
+        row += "= "+solution[i];
+    }
+    else 
+    {
+      row += "= - "+ (-1*solution[i]);
+    }
     printOnPage(row);
   }
 
-  printOnPage("The second step is to create the equations using Guass Jaccobi on the matrix:\n");
+  printOnPage("   The second step is to create the equations using Guass Jaccobi on the matrix by isolating the principle diagonal variable:\n");
   for (let i = 0; i < matrix.length; i++) {
+    
     let answer = '';
+    
     answer += `X<sub>${(i + 1)}` + "</sub> =<sup> 1</sup>&frasl;<sub> " + (matrix[i][i]) + "</sub> ( ";
+    
     let coffecientcounter = 1
 
     for (let j = 0; j < matrix.length; j++) {
+      
+      if (j == 0) {
 
-      if (solution[i] == 0) {} else if (j == 0) {
-        if (solution[i] < 0) {
-          answer += ("-" + (-1 * solution[i]));
-        } else {
+        if (solution[i] < 0) 
+        {
+          answer += (" - " + (-1 * solution[i]));
+        }
+
+        else {
           answer += ((solution[i]));
         }
       }
 
       if (i == j) {
-        answer += ("+0 x<sub>" + (coffecientcounter)+"</sub>");
-      } else if (matrix[i][j] >= 0) {
-        answer += ("+" + (matrix[i][j]) + " x<sub>" + (coffecientcounter)+"</sub>");
-      } else {
-        answer += ("-" + (-1 * matrix[i][j]) + " x<sub>" + (coffecientcounter)+"</sub>");
+        answer += (" - 0 x<sub>" + (coffecientcounter)+"</sub>");
+      } 
+      
+      else if (matrix[i][j] >= 0) {
+        answer += (" - " + (matrix[i][j]) + " x<sub>" + (coffecientcounter)+"</sub>");
+      } 
+      else {
+        answer += (" + " + (-1 * matrix[i][j]) + " x<sub>" + (coffecientcounter)+"</sub>");
       }
 
       coffecientcounter++;
@@ -217,7 +254,7 @@ function printexplation() {
     printOnPage(answer);
     printOnPage('\n')
   }
-
+  printOnPage(`   The third step is to take the intial values and subsitute them in the equation we got from the previous step and do that N times where N is the number of iterations entered:<br><br>`);
 
 }
 
