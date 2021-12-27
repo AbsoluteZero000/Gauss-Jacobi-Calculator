@@ -14,10 +14,9 @@ p.sa {
 }
 
 .credit {
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(30px);
   width: 400px;
-  height: auto;
-  position: relative;
+  height: 150px;
   margin:0 auto;
   border-radius: 20px;
   text-align: center;
@@ -175,8 +174,6 @@ textarea {
 }
 
 body {
-  font-family: sans-serif;
-  font-size: 100% ;
   background-image: url("background.jpg");
   background-attachment: fixed;
   background-size: cover;
