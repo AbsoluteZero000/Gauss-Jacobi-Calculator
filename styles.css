@@ -25,6 +25,9 @@ p.sa {
 
 p.answer {
   color: black;
+  background-color: transparent;
+  backdrop-filter: blur(13px);
+  border-radius: 5px;
 
 }
 
